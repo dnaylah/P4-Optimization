@@ -409,8 +409,8 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
+    var randomPizzaLength = randomPizzaContainer.length;
+    for (var i = 0; i < randomPizzaLength; i++) {
       randomPizzaContainer[i].style.width = newWidth + '%';
     }
   }
@@ -462,7 +462,7 @@ function updatePositions() {
   animating = false;
   frame++;
   window.performance.mark("mark_start_frame");
-  // create seprate variables for better management
+  // create separate variables for better management
   var items = document.getElementsByClassName('mover');
   var top = document.body.scrollTop/ 1250;
   var itemsLength = items.length;
@@ -476,7 +476,7 @@ function updatePositions() {
   // apply the transformations
   for (var i = 0; i < itemsLength ; i++) {
     var phase =  items[i].basicLeft + phaseArray[(i % 5)] -1250;
-    items[i].style.transform = 'translate3d(' + phase + 'px, 0, 0)'
+    items[i].style.transform = 'translate3d(' + phase + 'px, 0, 0)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
