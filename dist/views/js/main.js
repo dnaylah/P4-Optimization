@@ -362,7 +362,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
 
-  pizzaImage.src = "images/pizza.png";
+  pizzaImage.src = "../img/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
@@ -475,8 +475,13 @@ function updatePositions() {
 
   // apply the transformations
   for (var i = 0; i < itemsLength ; i++) {
-    var phase =  items[i].basicLeft + phaseArray[(i % 5)] -1250;
-    items[i].style.transform = 'translate3d(' + phase + 'px, 0, 0)';
+    
+    // code taken out
+    // var phase =  items[i].basicLeft + phaseArray[(i % 5)] -1250;
+    // items[i].style.transform = 'translate3d(' + phase + 'px, 0, 0)';
+    
+    // recommended add
+    items[i].style.transform = 'translate3d(' + phaseArray[i % 5] + 'px, 0, 0)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -515,10 +520,13 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < numOfPizzas; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "../img/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    // old code
+    // elem.basicLeft = (i % cols) * s;
+    // code added 
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzas1.appendChild(elem);
   }

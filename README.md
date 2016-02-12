@@ -7,6 +7,8 @@
 4) event listener to call updatePositions on scroll
 5) remove determineDx()
 6) changeSliderLabel set as percentage
+7) change how element applies style.left
+8) change how transformations are applied
 
 ##index.html
 1) inline css on index.html
@@ -20,6 +22,15 @@
     b) transform: translate3D(0, 0, 0);
     c) transform: translateZ(0);
     d) will-change: transform;
+    
+##file directory
+1) moved files around to make gulp work
+
+##built with automated gulp tasks
+1) gulp-cssnano to minify css
+2) gulp-htmlmin to minify html
+3) gulp-uglify to minify js
+4) gulp-imagemin to optimize images
 
 -----------------------------------------
 
